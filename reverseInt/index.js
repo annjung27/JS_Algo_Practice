@@ -7,7 +7,26 @@
 //   reverseInt(-13) === -31
 //   reverseInt(-100) === -1
 
-function reverseInt(n) {}
+function reverseInt(n) {
+  let reversed = n.toString().split("").reverse().join("");
+  reversed = parseInt(reversed);
+
+  if (n < 0) {
+    return reversed * -1;
+  }
+
+  return reversed;
+}
+
+/* 
+Pseudocode
+1. turn number into string (using builtin methods)
+2. reverse the string (using builtin methods)
+3. turn reversed string back into a number.
+4. in case the n is negative number: set conditional: -1을 곱해줌.
+
+Time Complexity: O(log N) if input increases by factor of 10, we do one more operation. 
+ */
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
