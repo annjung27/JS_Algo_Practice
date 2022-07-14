@@ -6,7 +6,29 @@
 // chunk(["a", "b", "c", "d"], 2) --> [[ "a", "b"], ["c", "d"]]
 // chunk([0, 1, 2, 3, 4, 5], 4) -->  [[0, 1, 2, 3], [4, 5]]
 
-function chunk(array, size) {}
+function chunk(array, size) {
+  let resArr = [];
+
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i];
+    const last = resArr[resArr.length - 1];
+
+    if (!last || last.length === size) {
+      resArr.push([item]);
+    } else {
+      last.push(item);
+    }
+  }
+  return resArr;
+}
+
+/**
+ Time Complexity: O(N)
+ - because we go over every item in input Array.
+
+ Space Complexity: O(N)
+ - because the resArr has roughly the same number of items as the input array
+ */
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
@@ -38,11 +60,17 @@ describe("Array Chunking", () => {
   it("chunk() works", () => {
     let arr = ["a", "b", "c", "d"];
     let chunked = chunk(arr, 2);
-    assert.deepEqual(chunked, [["a", "b"], ["c", "d"]]);
+    assert.deepEqual(chunked, [
+      ["a", "b"],
+      ["c", "d"],
+    ]);
 
     arr = [0, 1, 2, 3, 4, 5];
     chunked = chunk(arr, 4);
-    assert.deepEqual(chunked, [[0, 1, 2, 3], [4, 5]]);
+    assert.deepEqual(chunked, [
+      [0, 1, 2, 3],
+      [4, 5],
+    ]);
   });
 });
 
