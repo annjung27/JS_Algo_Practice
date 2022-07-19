@@ -9,10 +9,11 @@
 //   anagrams('lol', 'lolc') --> False
 
 function anagrams(stringA, stringB) {
-  //  clean the input strings (, case insensitive, no spaces, no non-alpabet characters)
+  //  Sanitize the input strings (case insensitive, remove non-alphabet characters)
   stringA = stringA.toLowerCase().replace(/[\W_]+/g, "");
   stringB = stringB.toLowerCase().replace(/[\W_]+/g, "");
 
+  // Solution 1
   // if input strings length is not same, return false
   if (stringA.length !== stringB.length) {
     return false;
@@ -37,7 +38,26 @@ function anagrams(stringA, stringB) {
 
     return true;
   }
+
+  /*Solution 2
+  // turn strings to array of chars -sort alphabetically - turn them back to strings
+  const sortedStringA = stringA.split("").sort().join("");
+  const sortedStringB = stringB.split("").sort().join("");
+
+  return sortedStringA === sortedStringB;
+*/
 }
+
+/*  Solution 1 Complexity  - Linear
+Time Complexity: O(N+M) - because we go over every character in both input strings.
+Space complexity: O(1) - because character Count Object has at most 26 key-val pairs 
+(it will never be over 26)
+*/
+
+/* Solution 2 Complexity
+Time Complexity: O(N * log N) - becasue we used sorting method.
+Space Complexity: O(N) - becasue sorted strings will be as long as input string.
+ */
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
