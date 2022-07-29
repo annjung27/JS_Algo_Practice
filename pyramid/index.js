@@ -21,6 +21,9 @@ function pyramid(n) {
   }
 }
 
+// Time complexity: O(N^2)
+// because outer loop runs N times, Inner loop(.repeat()method)runs roughly N times.
+
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
 //    ) (   | (    \/| (    \/   ) (     | (    \/| (   ) || (    \/| (    \/| (    \/
