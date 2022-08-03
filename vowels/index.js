@@ -7,7 +7,26 @@
 //   vowels('aEiOu') --> 5
 //   vowels('I am a world-class developer using iterations') --> 16
 
-function vowels(str) {}
+function vowels(str) {
+  str = str.toLowerCase();
+  const vowels = "aeiou".split("");
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    for (let j = 0; j < vowels.length; j++) {
+      const vowel = vowels[j];
+      if (char === vowel) {
+        count++;
+      }
+    }
+  }
+  return count;
+}
+
+// Time Complexity: O(5N) ---> O(N) because all characters of input string must be checked to see if it is a vowel.
+//  Space complexity : O(1)
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
 // \__   __/(  ____ \(  ____ \\__   __/  (  ____ \(  ___  )(  ____ \(  ____ \(  ____ \
