@@ -1,5 +1,9 @@
 // Implement a swap helper function that we will use in both BS and SS
-function swap(arr, i, j) {}
+function swap(arr, i, j) {
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
+}
 
 //bubbleSort works by having sorted data accumulate at end of array
 function bubbleSort(arr) {}
