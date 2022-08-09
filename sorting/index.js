@@ -6,7 +6,20 @@ function swap(arr, i, j) {
 }
 
 //bubbleSort works by having sorted data accumulate at end of array
-function bubbleSort(arr) {}
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        swap(arr, j, j + 1);
+      }
+    }
+  }
+
+  return arr;
+}
+
+// Time Complexity of Bubble Sort:
+// O(N^2) / Quadractic Time complexity
 
 //selectionSort works by having sorted data accumulate at start of array
 function selectionSort(arr) {}
@@ -45,7 +58,7 @@ describe("swap()", () => {
   });
 });
 
-describe.skip("Bubble Sort", () => {
+describe("Bubble Sort", () => {
   it("sorts an array", () => {
     assert.deepEqual(bubbleSort([5, 1, 3, 7, 6, 2, 4]), [1, 2, 3, 4, 5, 6, 7]);
   });
