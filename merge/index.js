@@ -37,7 +37,6 @@ Time complexity: O(N+M)
 Where N and M are length of sorted input arrays.
 
 Space complexity: O(N+M)
-Result array as long as input arrays combined.
 */
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
