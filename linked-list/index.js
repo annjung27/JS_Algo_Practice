@@ -40,6 +40,41 @@ class LinkedList {
     this.head = null;
     this.length = 0;
   }
+
+  // Shfit: removes AND returns first node, updates length for linked list w/ one node.
+  // removes the first node and returns it, decreases length of list.
+  // does not crash AND returns null on empty list. Does not decrease length.
+  shift() {
+    if (!this.head) {
+      return;
+    }
+    const oldHead = this.head;
+    this.head = this.head.next;
+    this.length--;
+    return oldHead;
+  }
+
+  // pop: removes AND returns last node, decreases length.
+  // removes AND returns last node, decreases length on linked-list w/ one node.
+  // Returns null on empty list AND does not decrease length.
+  pop() {
+    if (!this.head) {
+      return;
+    }
+
+    if (this.length === 1) {
+      return this.shift();
+    }
+    const last = this.getLast();
+    let current = this.head;
+
+    while (current.next !== last) {
+      current = current.next;
+    }
+    current.next = null;
+    this.length--;
+    return last;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -128,7 +163,7 @@ describe("clear()", () => {
   });
 });
 
-describe.skip("shift()", () => {
+describe("shift()", () => {
   it("removes AND returns first node, updates length for linked list w/ one node.", () => {
     const l = new LinkedList();
     l.unshift(1);
@@ -155,7 +190,7 @@ describe.skip("shift()", () => {
   });
 });
 
-describe.skip("pop()", () => {
+describe("pop()", () => {
   it("removes AND returns last node, decreases length.", () => {
     const l = new LinkedList();
     l.unshift("b");
