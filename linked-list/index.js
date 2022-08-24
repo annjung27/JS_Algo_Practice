@@ -86,6 +86,22 @@ class LinkedList {
     last.next = new Node(data, null);
     this.length++;
   }
+
+  // get: returns null on negative or out of bounds index.
+  // returns the node at given index.
+  get(index) {
+    if (index >= this.length || index < 0) {
+      return null;
+    }
+    let counter = 0;
+    let current = this.head;
+
+    while (counter < index) {
+      current = current.next;
+      counter++;
+    }
+    return current;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -241,7 +257,7 @@ describe("push(data)", () => {
   });
 });
 
-describe.skip("get(index)", () => {
+describe("get(index)", () => {
   it("returns null on negative or out of bounds index.", () => {
     const l = new LinkedList();
     l.push("Kevin");
