@@ -113,6 +113,25 @@ class LinkedList {
     node.data = data;
     return true;
   }
+
+  // remove: returns falsy value on out of bounds OR negative index.
+  // removes and returns node at given index. Decreases length.
+  // removes node at index 0, decreases length, and returns removed node.
+  remove(index) {
+    if (!this.get(index)) {
+      return false;
+    }
+
+    if (index === 0) {
+      return this.shift();
+    }
+    const pre = this.get(index - 1);
+    const node = this.get(index);
+
+    pre.next = pre.next.next;
+    this.length--;
+    return node;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -303,7 +322,7 @@ describe("set(index, data)", () => {
   });
 });
 
-describe.skip("remove(index)", () => {
+describe("remove(index)", () => {
   it("returns falsy value on out of bounds OR negative index.", () => {
     const l = new LinkedList();
     l.push(2);
