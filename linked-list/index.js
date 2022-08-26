@@ -132,6 +132,30 @@ class LinkedList {
     this.length--;
     return node;
   }
+
+  /**
+  insert:
+  returns false on index greater than length or negative index.
+  inserts new node at given index, increases length, and returns true.
+  inserts node at 0 index correctly, increases length, returns true.
+   */
+  insert(index, data) {
+    if (!this.get(index)) {
+      return false;
+    }
+
+    if (index === 0) {
+      this.unshift(data);
+      return true;
+    }
+
+    const prevNode = this.get(index - 1);
+    const nextNode = this.get(index);
+
+    prevNode.next = new Node(data, nextNode);
+    this.length++;
+    return true;
+  }
 }
 
 // _________ _______  _______ _________   _______  _______  _______  _______  _______
@@ -355,7 +379,7 @@ describe("remove(index)", () => {
   });
 });
 
-describe.skip("insert(index, data)", () => {
+describe("insert(index, data)", () => {
   it("returns false on index greater than length or negative index.", () => {
     const l = new LinkedList();
     assert.equal(l.insert(1, "meow"), false);
