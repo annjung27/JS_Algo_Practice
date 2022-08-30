@@ -44,3 +44,24 @@ when to use js objects to store your data...
 When to use Arrays to store your Data..
 
 - when you need order.
+
+# Big O - Linked list and Array
+
+## Linked List
+
+- insertion: O(N) / O(1) for start & end.
+- Removal: O(N) / O(1) for start.
+- Searching: O(N)
+- Accessing(index): O(N)
+
+## Array
+
+- insertion: O(N) / O(1) for end.
+- Removal : O(N) / O(1) for start.
+- Searching: O(N)
+- Accessing(index): O(1)
+
+## Linked list vs. Array
+
+- Use a Single linked list over an Array for storing ordered data, if you plan on frequqently removing or inserting data at start.
+- Use a Array over a Linked list for storing ordered data, if you plan on frequently accessing data using an index.
